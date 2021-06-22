@@ -1,9 +1,15 @@
 <script>
+  import ShaderBackground from './ShaderBackground.svelte'
 </script>
 
-<main>
-  <h1>text</h1>
-</main>
+<ShaderBackground>
+  <mouse />
+</ShaderBackground>
+
+<main />
 
 <style>
+  main {
+    z-index: 1;
+  }
 </style>
