@@ -11,6 +11,17 @@ body {
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  background: linear-gradient(
+    332deg,
+    #6d30de,
+    #2079ff,
+    #ca00ff,
+    #1636ff,
+    #ff00b9
+  );
+  background-size: 1000% 1000%;
+
+  animation: AnimationName 32s ease infinite;
 }
 
 a {
@@ -26,28 +37,14 @@ a:visited {
   color: rgb(0, 80, 160);
 }
 
-label {
-  display: block;
-}
-
-input:disabled {
-  color: #ccc;
-}
-
-button {
-  color: #333;
-  background-color: #f4f4f4;
-  outline: none;
-}
-
-button:disabled {
-  color: #999;
-}
-
-button:not(:disabled):active {
-  background-color: #ddd;
-}
-
-button:focus {
-  border-color: #666;
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 2%;
+  }
+  50% {
+    background-position: 100% 99%;
+  }
+  100% {
+    background-position: 0% 2%;
+  }
 }
