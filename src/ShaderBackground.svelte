@@ -15,9 +15,7 @@
 
   uniform vec2 resolution;
   uniform float time;
-  uniform vec2 positions[64];
   uniform vec2 mousePos;
-  const int maxBlobs = 64;
 
   float roundLookingBlob(vec2 fragCoord, vec2 tPos, float r) {
     vec2 uv = -.0 + 1.0*fragCoord.xy / resolution.xy;
@@ -30,23 +28,23 @@
   }
 
   void main() {
-    vec2 positions[64];
-    const int maxBlobs = 64;
+    vec2 positions[8];
+    const int maxBlobs = 8;
 	  float v = 0.0;
 
     positions[0] = vec2(0.01, 0.01);
-    positions[10] = vec2(0.5, 1.);
-    positions[20] = vec2(0.3, 0.3);
-    positions[25] = vec2(0.0, 1.3);
-    positions[32] = vec2(1.2, 0.1);
-    positions[34] = vec2(0.7, 0.7);
-    positions[20] = vec2(1.4, 0.9);
-    positions[60] = vec2(0., 0.5);
+    positions[1] = vec2(0.5, 1.);
+    positions[2] = vec2(0.3, 0.3);
+    positions[3] = vec2(0.0, 1.3);
+    positions[4] = vec2(1.2, 0.1);
+    positions[5] = vec2(0.7, 0.7);
+    positions[6] = vec2(1.4, 0.9);
+    positions[7] = vec2(0., 0.5);
 
     for(int i=0;i<maxBlobs;++i)
     {
         if(positions[i].x>0. && positions[i].y > 0.){
-            float iFloat = float(i);
+            float iFloat = pow(float(i),2.);
             vec2 bubblePos = positions[i];
             bubblePos.x *= sin(time*0.005*iFloat);
             bubblePos.y += cos(time*0.0005 *iFloat*iFloat);
@@ -130,7 +128,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 5;
-    /* filter: blur(1px); */
+
     pointer-events: none;
   }
 </style>
